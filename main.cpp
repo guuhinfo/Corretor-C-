@@ -22,7 +22,7 @@ using namespace std;
  * 
  */
 int main() {
-    
+    Arvore* nova = nova->Carregar("<caminho do arquivo>");
 
     nova->Imprimir();
     nova->Limpar();
