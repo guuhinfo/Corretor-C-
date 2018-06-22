@@ -22,7 +22,7 @@ using namespace std;
  * 
  */
 int main() {
-    Arvore *nova = nova->Carregar("/home/samantho/Desktop/nome.txt");
+    
 
     nova->Imprimir();
     nova->Limpar();
