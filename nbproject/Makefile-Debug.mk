@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Arvore.o \
 	${OBJECTDIR}/No.o \
 	${OBJECTDIR}/Palavra.o \
+	${OBJECTDIR}/Texto.o \
 	${OBJECTDIR}/main.o
 
 
@@ -79,6 +80,11 @@ ${OBJECTDIR}/Palavra.o: Palavra.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Palavra.o Palavra.cpp
+
+${OBJECTDIR}/Texto.o: Texto.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Texto.o Texto.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
