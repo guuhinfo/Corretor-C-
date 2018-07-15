@@ -39,7 +39,7 @@ void Texto::lerArquivo(const string& arquivo) const{
             throw 200;
     }
     catch(int e){
-        cout << "Erro ao carregar o texto!" << endl;
+        cout << "Erro ao abrir o arquivo para leitura!" << endl;
         return;
     }
     
@@ -53,7 +53,7 @@ void Texto::lerArquivo(const string& arquivo) const{
     //definidos anteriormente
     //Faz a operacao linha por linha
     while(getline(textoArquivo, linha)){
-        size_t e, s=0; //e -> final da proxima palavra; s -> offset da proxima palavra
+        size_t e, s=0; //e: final da proxima palavra; s: offset da proxima palavra
         
         do{
             Palavra auxPalavra;
@@ -85,5 +85,42 @@ bool Texto::alterarPalavra(Palavra &atual){
 }
 
 bool Texto::salvarTexto(const string& nomeArquivo){
+    //Caso o nome do arquivo seja diferente, atualiza o nome do arquivo no objeto
+    //da classe
+    if(nomeArquivo != nome_arquivo)
+        nome_arquivo = nomeArquivo;
     
+    //Cria o arquivo textoArquivo para escrita
+    ofstream textoArquivo;
+    
+    //Tenta abrir o arquivo com try-catch
+    //Caso nao consiga, joga uma excecao e retorna falso
+    try{
+        textoArquivo.open(nomeArquivo);
+        if(!textoArquivo.is_open())
+            throw 200;
+    }
+    catch(int e){
+        cout << "Erro ao abrir o arquivo para escrita!" << endl;
+        return false;
+    }
+    
+    //@aux armazenara a string palavra do objeto Palavra para ser escrito no arquivo
+    //@it e o iterador da lista duplamente encadeada. Note que, por ser uma lista
+    //duplamente encadeada, necessariamente precisamos desse iterador para percorrer
+    //por toda lista.
+    //it e setado no inicio da lista com "texto.begin()" e vai ate o final dela
+    string aux;
+    list<Palavra>::iterator it;
+    it = texto.begin();
+    while(it != texto.end()){
+        //@it e ponteiro para a lista de objetos Palavra, por isso usa-se "->"
+        aux = it->getPalavra();
+        textoArquivo << aux << " ";
+        //incrementa o iterador para passar para o proximo elemento da lista
+        it++;
+    }
+    
+    textoArquivo.close();
+    return true;
 }
