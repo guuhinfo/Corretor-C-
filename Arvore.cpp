@@ -37,7 +37,7 @@ void Arvore::Imprimir(){
 void Arvore::imprimir(No* no){
     if (no != NULL){
         this->imprimir(no->SubArvore[ESQUERDA]);
-        cout << no->word  << endl;
+        cout << no->word.getPalavra()  << endl;
         this->imprimir(no->SubArvore[DIREITA]);
     }
 }
@@ -230,12 +230,12 @@ bool Arvore::Buscar(const string& chave){
 
     while (atual != NULL){
 
-        if (chave > atual->word){
+        if (chave > atual->word.getPalavra()){
             // O valor está mais à direita
             atual = atual->SubArvore[DIREITA];
         }
 
-        else if (chave < atual->word){
+        else if (chave < atual->word.getPalavra()){
             // O valor está mais à esquerda
             atual = atual->SubArvore[ESQUERDA];
         }
@@ -271,13 +271,13 @@ void Arvore::inserir(const string& chave, No*& no, bool& hChanged){
         hChanged = true;
     }
 
-    else if (no->word == chave){
+    else if (no->word.getPalavra() == chave){
         // A informação já estava na árvore
         return;
     }
 
     else{
-        Direcao dir = (chave > no->word) ? DIREITA : ESQUERDA;
+        Direcao dir = (chave > no->word.getPalavra()) ? DIREITA : ESQUERDA;
 
         hChanged = false; // chamamos recursão
 
@@ -313,7 +313,7 @@ bool Arvore::remover(const string& chave, No*& no, bool& hChanged){
     }
 
     // Achamos o nó
-    else if (chave == no->word){
+    else if (chave == no->word.getPalavra()){
 
         // Caso tenha dois filhos
         if (no->SubArvore[ESQUERDA] != NULL && no->SubArvore[DIREITA] != NULL ){
@@ -322,10 +322,10 @@ bool Arvore::remover(const string& chave, No*& no, bool& hChanged){
             while (substitute->SubArvore[DIREITA] != NULL){
                 substitute = substitute->SubArvore[DIREITA];
             }
-
+            //VERIFICAR<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
             no->word = substitute->word;
 
-            success = remover(no->word, no->SubArvore[ESQUERDA], hChanged);
+            success = remover(no->word.getPalavra(), no->SubArvore[ESQUERDA], hChanged);
 
             if (hChanged){
                 rebalRemover(no, ESQUERDA, hChanged);
@@ -355,7 +355,7 @@ bool Arvore::remover(const string& chave, No*& no, bool& hChanged){
 
     else{
 
-        Direcao dir = (chave > no->word) ? DIREITA : ESQUERDA;
+        Direcao dir = (chave > no->word.getPalavra()) ? DIREITA : ESQUERDA;
 
         if (no->SubArvore[dir] != NULL){
 
@@ -443,7 +443,7 @@ bool Arvore::salvar(ofstream& stream, No* no){
     if (stream.is_open()){
 
         if (no != NULL){
-            stream << no->word   << endl;
+            stream << no->word.getPalavra()   << endl;
 
             this->salvar(stream, no->SubArvore[ESQUERDA]);
             this->salvar(stream, no->SubArvore[DIREITA]);

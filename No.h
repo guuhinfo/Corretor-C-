@@ -43,5 +43,5 @@ class No{
         No* SubArvore[2];
 
         //  palavra do dicionario e texto
-        string word;
+        Palavra word;
 };

@@ -46,7 +46,7 @@ void Texto::lerArquivo(const string& arquivo) const{
     string aux;
     string linha;
     
-    //separador e uma lista de caracteres a serem descartados
+    //@separador e uma lista de caracteres a serem descartados
     string separador{" \t\r\n,.!?;:"};
     
     //busca palavra por palavra do arquivo de texto descartando os separadores

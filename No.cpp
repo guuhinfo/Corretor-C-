@@ -9,10 +9,11 @@
  */
 
 #include "No.h"
+#include "Palavra.h"
 #include <string>
 
 No::No(const string& chave){
-            this->word = chave;
+            this->word.setPalavra(chave);
             this->SubArvore[ESQUERDA]  = NULL;
             this->SubArvore[DIREITA] = NULL;
             this->Balance = IGUAL;

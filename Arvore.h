@@ -8,6 +8,7 @@
  * Created on 10 de Maio de 2018
  */
 #include"No.h"
+#include "Palavra.h"
 #include<string>
 
 using namespace std;
