@@ -40,10 +40,18 @@ class Arvore
         static Arvore* Carregar(const char* path);
 
         bool Salvar(const char* path);
+        
+        //Buscar todas as palavras semelhantes a um potencial erro no texto
+        void lista_semelhantes(Palavra palavra);
+
+        //Retorna a lista de palavras semelhantes para o dicionario
+        list<Palavra> getListaSemelhantes();
 
     private:
 
         No* raiz;
+        
+        list<Palavra> semelhantes;
 
         // Rotações
 
@@ -71,6 +79,8 @@ class Arvore
         void imprimir(No* no);
 
         inline Direcao oposto(Direcao dir);
+        
+        void listaSemelhantes(No* no, Palavra palavra);
 
 };
 

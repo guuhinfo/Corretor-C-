@@ -9,8 +9,10 @@
  */
 
 #include "Arvore.h"
+#include "Palavra.h"
 #include<iostream>
 #include<fstream>
+#include <list>
 
 using namespace std;
 
@@ -230,12 +232,12 @@ bool Arvore::Buscar(const string& chave){
 
     while (atual != NULL){
 
-        if (chave > atual->word.getPalavra()){
+        if (chave > (atual->word).getPalavra()){
             // O valor está mais à direita
             atual = atual->SubArvore[DIREITA];
         }
 
-        else if (chave < atual->word.getPalavra()){
+        else if (chave < (atual->word).getPalavra()){
             // O valor está mais à esquerda
             atual = atual->SubArvore[ESQUERDA];
         }
@@ -271,13 +273,13 @@ void Arvore::inserir(const string& chave, No*& no, bool& hChanged){
         hChanged = true;
     }
 
-    else if (no->word.getPalavra() == chave){
+    else if ( (no->word).getPalavra() == chave){
         // A informação já estava na árvore
         return;
     }
 
     else{
-        Direcao dir = (chave > no->word.getPalavra()) ? DIREITA : ESQUERDA;
+        Direcao dir = (chave > (no->word).getPalavra()) ? DIREITA : ESQUERDA;
 
         hChanged = false; // chamamos recursão
 
@@ -443,7 +445,7 @@ bool Arvore::salvar(ofstream& stream, No* no){
     if (stream.is_open()){
 
         if (no != NULL){
-            stream << no->word.getPalavra()   << endl;
+            stream << (no->word).getPalavra()   << endl;
 
             this->salvar(stream, no->SubArvore[ESQUERDA]);
             this->salvar(stream, no->SubArvore[DIREITA]);
@@ -452,4 +454,26 @@ bool Arvore::salvar(ofstream& stream, No* no){
 
     }
     else return false;
+}
+
+void Arvore::lista_semelhantes(Palavra palavra){
+    this->listaSemelhantes(this->raiz, palavra);
+}
+
+/*Percorre por toda a arvore buscando as palavras semelhantes a passada como 
+ * parametro. Caso encontre, essa palavra e adicionada a uma lista de Palavras
+ */
+void Arvore::listaSemelhantes(No* no, Palavra palavra){
+    if (no != NULL){        
+        this->listaSemelhantes(no->SubArvore[ESQUERDA]);
+        
+        if(palavra.semelhante( (no->word).getPalavra() ))
+            semelhantes.push_back( (no->word) );
+        
+        this->listaSemelhantes(no->SubArvore[DIREITA]);
+    }
+}
+
+list<Palavra> Arvore::getListaSemelhantes(){
+    return semelhantes;
 }

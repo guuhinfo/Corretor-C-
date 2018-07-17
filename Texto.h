@@ -1,5 +1,5 @@
 /* 
- * File:   Palavra.h
+ * File:   Texto.h
  * Author: 
  * Renato Araujo Rizzo          RA: 587788
  * Renato Candido Kurosaki      RA: 587834

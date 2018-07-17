@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Arvore.o \
+	${OBJECTDIR}/Dicionario.o \
 	${OBJECTDIR}/No.o \
 	${OBJECTDIR}/Palavra.o \
 	${OBJECTDIR}/Texto.o \
@@ -70,6 +71,11 @@ ${OBJECTDIR}/Arvore.o: Arvore.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Arvore.o Arvore.cpp
+
+${OBJECTDIR}/Dicionario.o: Dicionario.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dicionario.o Dicionario.cpp
 
 ${OBJECTDIR}/No.o: No.cpp
 	${MKDIR} -p ${OBJECTDIR}

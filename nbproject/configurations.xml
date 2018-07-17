@@ -5,6 +5,7 @@
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
       <itemPath>Arvore.h</itemPath>
+      <itemPath>Dicionario.h</itemPath>
       <itemPath>No.h</itemPath>
       <itemPath>Palavra.h</itemPath>
       <itemPath>Texto.h</itemPath>
@@ -13,6 +14,7 @@
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
       <itemPath>Arvore.cpp</itemPath>
+      <itemPath>Dicionario.cpp</itemPath>
       <itemPath>No.cpp</itemPath>
       <itemPath>Palavra.cpp</itemPath>
       <itemPath>Texto.cpp</itemPath>
@@ -47,6 +49,10 @@
       <item path="Arvore.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Arvore.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Dicionario.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Dicionario.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="No.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -86,6 +92,10 @@
       <item path="Arvore.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Arvore.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Dicionario.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Dicionario.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="No.cpp" ex="false" tool="1" flavor2="0">
       </item>
