@@ -29,13 +29,13 @@ public:
     void setNomeArquivo(const string &arquivo);
     
     //Passado como parametro o nome do arquivo a ser aberto pela classe Corretor
-    void lerArquivo(const string &arquivo) const;
-    
-    //Alterar uma palavra
-    bool alterarPalavra(Palavra &atual);
+    void lerArquivo() const;
     
     //Salvar o texto em um arquivo
-    bool salvarTexto(const string &nomeArquivo);
+    bool salvarTexto(const string &nomeArquivo, list<Palavra> &novoTexto);
+    
+    //Retorna a lista que contem as Palavras do texto
+    list<Palavra> getTexto();
 };
 
 

@@ -32,6 +32,7 @@ Dicionario::Dicionario(){
 
 //Destrutor limpa a AVL e tambem limpa a lista de Palavras
 Dicionario::~Dicionario(){
+    avl->Salvar("/home/samantho/Desktop/dict.txt");
     avl->Limpar();
     listaSemelhantes.clear();
 }

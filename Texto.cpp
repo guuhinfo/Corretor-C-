@@ -30,11 +30,11 @@ void Texto::setNomeArquivo(const string& arquivo){
     nome_arquivo = arquivo;
 }
 
-void Texto::lerArquivo(const string& arquivo) const{
+void Texto::lerArquivo() const{
     ifstream textoArquivo;
     //Tenta carregar o texto a partir do arquivo para a memoria
     try{
-        textoArquivo.open(arquivo);
+        textoArquivo.open(nome_arquivo);
         if(!textoArquivo.is_open())
             throw 200;
     }
@@ -80,14 +80,10 @@ void Texto::lerArquivo(const string& arquivo) const{
     textoArquivo.close();
 }
 
-bool Texto::alterarPalavra(Palavra &atual){
-    
-}
-
-bool Texto::salvarTexto(const string& nomeArquivo){
+bool Texto::salvarTexto(const string& nomeArquivo, list<Palavra> &novoTexto){
     //Caso o nome do arquivo seja diferente, atualiza o nome do arquivo no objeto
     //da classe
-    if(nomeArquivo != nome_arquivo)
+    if(nomeArquivo != nome_arquivo && nomeArquivo != "")
         nome_arquivo = nomeArquivo;
     
     //Cria o arquivo textoArquivo para escrita
@@ -112,8 +108,8 @@ bool Texto::salvarTexto(const string& nomeArquivo){
     //it e setado no inicio da lista com "texto.begin()" e vai ate o final dela
     string aux;
     list<Palavra>::iterator it;
-    it = texto.begin();
-    while(it != texto.end()){
+    it = novoTexto.begin();
+    while(it != novoTexto.end()){
         //@it e ponteiro para a lista de objetos Palavra, por isso usa-se "->"
         aux = it->getPalavra();
         textoArquivo << aux << " ";
@@ -123,4 +119,8 @@ bool Texto::salvarTexto(const string& nomeArquivo){
     
     textoArquivo.close();
     return true;
+}
+
+list<Palavra> Texto::getTexto(){
+    return texto;
 }
