@@ -29,12 +29,22 @@ Corretor::~Corretor(){
 
 void Corretor::salvar(){
     string nomeTexto;
+    int salvar;
+    cout << "Salvar arquivo texto?" << endl;
+    cout << "1: sim / 2: nao" << endl;
+    cin >> salvar;
+    
+    if(salvar != 1)
+        return;
+    
     cout << "Nome do arquivo texto: " << endl;
     cin >> nomeTexto;
     if(textoOriginal.salvarTexto(nomeTexto, texto))
         cout << "Salvo com sucesso!" << endl;
     else
-        cout << "Erro ao salvar os arquivos!" << endl;
+        cout << "Erro ao salvar o arquivo!" << endl;
+    
+    return;
 }
 
 void Corretor::carregarTexto(){
@@ -136,6 +146,13 @@ void Corretor::principal(){
                         
                     case 3: // Mostra uma lista de palavras semelhantes
                         semelhantes = dicionario.getListaSemelhantes();
+                        
+                        //Verifica se a lista de semelhantes esta vazia
+                        if(semelhantes == true){
+                            cout << "Nao ha palavras semelhantes!" << endl;
+                            break;
+                        }
+                        
                         list<Palavra>::iterator iterador = semelhantes.begin();
                         int contador = 1;
                         int escolha;
