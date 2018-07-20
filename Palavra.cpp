@@ -19,6 +19,10 @@ void Palavra::setPalavra(Palavra palavra){
     this->palavra = palavra;
 }
 
+void Palavra::setPalavra(string palavra){
+    this->palavra = palavra;
+}
+
 void Palavra::getPalavra(){
     return palavra;
 }

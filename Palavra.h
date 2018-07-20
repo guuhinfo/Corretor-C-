@@ -20,8 +20,11 @@ public:
     //Construtor 
     Palavra(string palavra);
     
-    //Setar a palavra
+    //Setar a palavra a partir de uma Palavra
     void setPalavra(Palavra palavra);
+    
+    //Setar a palavra a partir de uma string
+    void setPalavra(string palavra);
     
     //Recuperar a palavra
     void getPalavra();

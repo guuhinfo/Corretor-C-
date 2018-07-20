@@ -477,3 +477,8 @@ void Arvore::listaSemelhantes(No* no, Palavra palavra){
 list<Palavra> Arvore::getListaSemelhantes(){
     return semelhantes;
 }
+
+void Arvore::limpaListaSemelhantes(){
+    semelhantes.clear();
+    return;
+}

@@ -38,7 +38,13 @@ Dicionario::~Dicionario(){
 }
 
 void Dicionario::lista_Semelhantes(Palavra palavra){
-    //Primeiramente monta uma lista na avl com as semelhantes passadas como parametro
+    //Limpa a lista de palavras semelhantes do Dicionario
+    limparListaSemelhantes();
+    
+    //Limpa a lista de semelhantes da AVL
+    avl->limpaListaSemelhantes();
+    
+    //Monta uma lista na avl com as semelhantes passadas como parametro
     avl->lista_semelhantes(palavra);
     
     //Pega a lista da arvore e armazena na lista do dicionario
@@ -47,6 +53,10 @@ void Dicionario::lista_Semelhantes(Palavra palavra){
 
 void Dicionario::limparListaSemelhantes(){
     listaSemelhantes.clear();
+}
+
+void Dicionario::getListaSemelhantes(){
+    return listaSemelhantes;
 }
 
 //Insere a palavra na arvore para atualizar o dicionario

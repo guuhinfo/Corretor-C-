@@ -21,6 +21,8 @@ private:
     Texto textoOriginal;
     Dicionario dicionario;
     list<Palavra> texto;
+    list<Palavra> listaErros;
+    list<Palavra> semelhantes;
     
     //lista de pares que associa uma palavra errada e o numero de vezes em que 
     //ela apareceu no texto.

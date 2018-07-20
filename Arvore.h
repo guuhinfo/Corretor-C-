@@ -46,6 +46,8 @@ class Arvore
 
         //Retorna a lista de palavras semelhantes para o dicionario
         list<Palavra> getListaSemelhantes();
+        
+        void limpaListaSemelhantes();
 
     private:
 
