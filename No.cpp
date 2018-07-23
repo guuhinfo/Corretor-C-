@@ -13,7 +13,7 @@
 #include <string>
 
 No::No(const string& chave){
-            this->word.setPalavra(chave);
+            (this->word).setPalavra(chave);
             this->SubArvore[ESQUERDA]  = NULL;
             this->SubArvore[DIREITA] = NULL;
             this->Balance = IGUAL;

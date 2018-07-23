@@ -39,7 +39,7 @@ public:
     //Monta uma lista de palavras semelhantes a palavra passada como parametro
     void lista_Semelhantes(Palavra palavra);
     
-    void getListaSemelhantes();
+    list<Palavra> getListaSemelhantes();
     
     void limparListaSemelhantes();
 };

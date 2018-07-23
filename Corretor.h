@@ -8,6 +8,9 @@
  * Created on 18 de Julho de 2018, 06:43
  */
 
+#ifndef CORRETOR_H
+#define CORRETOR_H
+
 #include "Palavra.h"
 #include "Texto.h"
 #include "Dicionario.h"
@@ -35,7 +38,7 @@ public:
     //Corretor para poder ser manupulada.
     void carregarTexto();
     
-    void corrigirPalavra(string &palavra);
+    //void corrigirPalavra(string &palavra);
     void adicionarDicionario();
     
     void principal();
@@ -43,4 +46,7 @@ public:
     //Salva o texto.
     void salvar();
 };
+
+
+#endif	// CORRETOR_H
 

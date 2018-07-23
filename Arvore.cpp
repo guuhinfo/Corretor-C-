@@ -31,18 +31,18 @@ Arvore::~Arvore(){
 
 }
 
-void Arvore::Imprimir(){
+/*void Arvore::Imprimir(){
     this->imprimir(this->raiz);
-}
+}*/
 
 // Imprime os nos da Arvore em ordem
-void Arvore::imprimir(No* no){
+/*void Arvore::imprimir(No* no){
     if (no != NULL){
         this->imprimir(no->SubArvore[ESQUERDA]);
         cout << no->word.getPalavra()  << endl;
         this->imprimir(no->SubArvore[DIREITA]);
     }
-}
+}*/
 
 // Limpa a árvore (remove todos seus nós)
 void Arvore::Limpar(){
@@ -465,12 +465,14 @@ void Arvore::lista_semelhantes(Palavra palavra){
  */
 void Arvore::listaSemelhantes(No* no, Palavra palavra){
     if (no != NULL){        
-        this->listaSemelhantes(no->SubArvore[ESQUERDA]);
+        this->listaSemelhantes(no->SubArvore[ESQUERDA], palavra);
         
-        if(palavra.semelhante( (no->word).getPalavra() ))
+        string aux;
+        aux = palavra.getPalavra();
+        if(palavra.semelhante( aux ))
             semelhantes.push_back( (no->word) );
         
-        this->listaSemelhantes(no->SubArvore[DIREITA]);
+        this->listaSemelhantes(no->SubArvore[DIREITA], palavra);
     }
 }
 

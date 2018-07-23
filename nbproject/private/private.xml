@@ -8,16 +8,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/samantho/Desktop/Corretor/Arvore.h</file>
-            <file>file:/home/samantho/Desktop/Corretor/Corretor.cpp</file>
             <file>file:/home/samantho/Desktop/Corretor/No.h</file>
             <file>file:/home/samantho/Desktop/Corretor/Arvore.cpp</file>
-            <file>file:/home/samantho/Desktop/Corretor/Corretor.h</file>
             <file>file:/home/samantho/Desktop/Corretor/Texto.cpp</file>
-            <file>file:/home/samantho/Desktop/Corretor/Dicionario.h</file>
             <file>file:/home/samantho/Desktop/Corretor/Palavra.h</file>
-            <file>file:/home/samantho/Desktop/Corretor/Texto.h</file>
             <file>file:/home/samantho/Desktop/Corretor/Dicionario.cpp</file>
+            <file>file:/home/samantho/Desktop/Corretor/main.cpp</file>
             <file>file:/home/samantho/Desktop/Corretor/Palavra.cpp</file>
+            <file>file:/home/samantho/Desktop/Corretor/Corretor.cpp</file>
+            <file>file:/home/samantho/Desktop/Corretor/Corretor.h</file>
+            <file>file:/home/samantho/Desktop/Corretor/No.cpp</file>
+            <file>file:/home/samantho/Desktop/Corretor/Dicionario.h</file>
+            <file>file:/home/samantho/Desktop/Corretor/Texto.h</file>
         </group>
     </open-files>
 </project-private>

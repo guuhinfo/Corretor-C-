@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <list>
 
 using namespace std;
 
@@ -26,10 +27,10 @@ public:
     ~Texto();
     
     //Armazena o nome do arquivo texto
-    void setNomeArquivo(const string &arquivo);
+    void setNomeArquivo(const string arquivo);
     
     //Passado como parametro o nome do arquivo a ser aberto pela classe Corretor
-    void lerArquivo() const;
+    void lerArquivo();
     
     //Salvar o texto em um arquivo
     bool salvarTexto(const string &nomeArquivo, list<Palavra> &novoTexto);

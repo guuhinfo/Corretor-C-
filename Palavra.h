@@ -8,6 +8,9 @@
  * Created on 26 de Junho de 2018, 07:23
  */
 
+#ifndef PALAVRA_H
+#define PALAVRA_H
+
 #include<string>
 
 using namespace std;
@@ -18,21 +21,29 @@ private:
     
 public:
     //Construtor 
-    Palavra(string palavra);
+    Palavra(const Palavra& word);
+    
+    Palavra( string& word);
+    
+    Palavra();
     
     //Setar a palavra a partir de uma Palavra
     void setPalavra(Palavra palavra);
     
     //Setar a palavra a partir de uma string
-    void setPalavra(string palavra);
+    //void setPalavra(string palavra);
+    
+    void setPalavra( string palavra);
     
     //Recuperar a palavra
-    void getPalavra();
+    string getPalavra() const;
     
     //Verifica se as palavras sao semelhantes comparando as duas primeiras letras
-    bool semelhante(const Palavra &palavra);
+    bool semelhante( string palavra) const;
     
     //Sobrecarga do operador == para verificar se sao identicas duas palavras
     bool operator==(Palavra &palavra);
     
 };
+#endif	// PALAVRA_H
+

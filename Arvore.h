@@ -7,9 +7,13 @@
  *
  * Created on 10 de Maio de 2018
  */
+#ifndef ARVORE_H
+#define ARVORE_H
+
 #include"No.h"
 #include "Palavra.h"
 #include<string>
+#include <list>
 
 using namespace std;
 
@@ -85,4 +89,7 @@ class Arvore
         void listaSemelhantes(No* no, Palavra palavra);
 
 };
+
+
+#endif	// ARVORE_H
 

@@ -11,26 +11,38 @@
 
 using namespace std;
 
-Palavra::Palavra(Palavra palavra){
+Palavra::Palavra(const Palavra &palavra){
+    this->palavra = palavra.palavra;
+}
+
+Palavra::Palavra( string& palavra){
     this->palavra = palavra;
+}
+
+Palavra::Palavra(){
+    palavra = "";
 }
 
 void Palavra::setPalavra(Palavra palavra){
+    this->palavra = palavra.palavra;
+}
+
+/*void Palavra::setPalavra(string palavra){
+    this->palavra = palavra;
+}*/
+
+void Palavra::setPalavra( string palavra){
     this->palavra = palavra;
 }
 
-void Palavra::setPalavra(string palavra){
-    this->palavra = palavra;
-}
-
-void Palavra::getPalavra(){
+string Palavra::getPalavra() const{
     return palavra;
 }
 
 //Compara as duas primeiras letras das palavras.
 //Serao semelhantes se as duas forem iguais, retornando true
 //Caso nao sejam, retorna false
-bool Palavra::semelhante(const Palavra& palavra){
+bool Palavra::semelhante(string palavra) const {
     if(this->palavra[0] == palavra[0] && this->palavra[1] == palavra[1])
         return true;
     
@@ -40,5 +52,5 @@ bool Palavra::semelhante(const Palavra& palavra){
 
 //Verifica se as palavras sao identivas.
 bool Palavra::operator ==(Palavra& palavra){
-    return (this->palavra == palavra);
+    return (this->palavra == palavra.palavra);
 }

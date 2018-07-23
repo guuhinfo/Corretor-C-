@@ -8,7 +8,11 @@
  * Created on 10 de Maio de 2018
  */
 
-#include<string>
+#ifndef NO_H
+#define NO_H
+
+#include <string>
+#include "Palavra.h"
 
 using namespace std;
 
@@ -45,3 +49,5 @@ class No{
         //  palavra do dicionario e texto
         Palavra word;
 };
+#endif	// NO_H
+

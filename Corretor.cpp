@@ -56,12 +56,12 @@ void Corretor::carregarTexto(){
     texto = textoOriginal.getTexto();
 }
 
-void Corretor::corrigirPalavra(string palavra){
+/*void Corretor::corrigirPalavra(string palavra){
     string novaPalavra;
     cout << "Corrigir a palavra: " << palavra << endl;
     cin >> novaPalavra;
     
-}
+}*/
 
 /*
  * Faz a interacao com o usuario. Primeiramente carrega o texto da classe Texto
@@ -77,6 +77,9 @@ void Corretor::corrigirPalavra(string palavra){
  * A cada Palavra errada encontrada, a mesma sera adicionada a uma lista de erros.
  */
 void Corretor::principal(){
+    //Nova palavra caso seja necessario usar no primeiro caso do switch
+    string novaPalavra;
+    
     //Pega o texto da classe Texto
     carregarTexto();
     
@@ -100,17 +103,21 @@ void Corretor::principal(){
             
             cout << "Contexto da palavra: " << endl;
             if(it == texto.begin()){
-                posterior = it + 1;
+                posterior = it;
+                posterior++;
                 cout << it->getPalavra() << posterior->getPalavra() << endl;
             }
             
             else if(it == texto.end()){
-                anterior = it - 1;
+                anterior = it;
+                anterior--;
                 cout << anterior->getPalavra() << it->getPalavra() << endl;
             }
             else{
-                anterior = it - 1;
-                posterior = it + 1;
+                anterior = it;
+                anterior--;
+                posterior = it;
+                posterior++;
                 cout << anterior->getPalavra() << it->getPalavra() << posterior->getPalavra() << endl;
             }
             
@@ -121,16 +128,16 @@ void Corretor::principal(){
             cout << "3: Selecionar uma palavra semelhante" << endl;
             cin >> opcao;
             
-            do{
+            while(opcao != 1 || opcao != 2 || opcao != 3){
                 switch(opcao){
-                    case 1: // Corrige a palavra
-                        string novaPalavra;
+                    case 1:{// Corrige a palavra
+                        
                         cout << "Entre com a nova palavra: " << endl;
                         cin >> novaPalavra;
                         it->setPalavra(novaPalavra);
                         break;
-                        
-                    case 2:
+                    }    
+                    case 2:{
                         //Ignorar o erro e dar a opcao de adicionar ao dicionario
                         int escolha;
                         cout << "Deseja adicionar a palavra ao dicionario?" << endl;
@@ -143,50 +150,55 @@ void Corretor::principal(){
                             break;
                         dicionario.incluirPalavra(it->getPalavra());
                         break;
-                        
-                    case 3: // Mostra uma lista de palavras semelhantes
+                    }    
+                    case 3:{ // Mostra uma lista de palavras semelhantes
                         semelhantes = dicionario.getListaSemelhantes();
                         
                         //Verifica se a lista de semelhantes esta vazia
-                        if(semelhantes == true){
+                        if(semelhantes.empty() == true){
                             cout << "Nao ha palavras semelhantes!" << endl;
                             break;
                         }
                         
                         list<Palavra>::iterator iterador = semelhantes.begin();
                         int contador = 1;
-                        int escolha;
+                        int nroSubstituto;
                         
                         cout << "Escolha um numero (0 para prosseguir sem substituir): " << endl;
                         while(iterador != semelhantes.end()) {
                             cout << "\t" << contador << ": " << iterador->getPalavra() << endl;
                             contador++;
                         }
-                        cin >> escolha;
+                        cin >> nroSubstituto;
                         
-                        if(escolha == 0)
+                        if(nroSubstituto == 0)
                             break;
                         
-                        for(iterador = semelhantes.begin(), contador = 0; contador == escolha - 1; contador++, iterador++ ){
+                        for(iterador = semelhantes.begin(), contador = 0; contador == nroSubstituto - 1; contador++, iterador++ ){
                             it->setPalavra(*iterador);
                         }
                         break;
-
+                    }
                         
-                    default:
+                    default:{
                         cout << "Opcao invalida!" << endl;
+                    }    
+                        
                 }
                 cin >> opcao;
-            }while(opcao != 1 || opcao != 2 || opcao != 3);
+            }
             
             //Adiciona a palavra na lista de erros
             listaErros.push_back(*it);
         }
         
-        
-        //FALTA ADICIONAR OS ERROS NA LISTA DE PARES
-        
         it++;
     }
-
+    
+    //Pega a lista de erros e adiciona a lista de tuplas (pares)
+    /*list<Palavra>::iterator iterador;
+    list<pair<Palavra, int>>::iterator itpair = erros.begin();
+    for(iterador = listaErros.begin(); iterador = listaErros.end(); iterador++){
+        
+    }*/
 }

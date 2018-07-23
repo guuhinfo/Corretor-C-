@@ -26,11 +26,11 @@ Texto::~Texto(){
     texto.clear();
 }
 
-void Texto::setNomeArquivo(const string& arquivo){
+void Texto::setNomeArquivo(const string arquivo){
     nome_arquivo = arquivo;
 }
 
-void Texto::lerArquivo() const{
+void Texto::lerArquivo() {
     ifstream textoArquivo;
     //Tenta carregar o texto a partir do arquivo para a memoria
     try{

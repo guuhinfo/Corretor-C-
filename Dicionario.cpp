@@ -55,7 +55,7 @@ void Dicionario::limparListaSemelhantes(){
     listaSemelhantes.clear();
 }
 
-void Dicionario::getListaSemelhantes(){
+list<Palavra> Dicionario::getListaSemelhantes(){
     return listaSemelhantes;
 }
 

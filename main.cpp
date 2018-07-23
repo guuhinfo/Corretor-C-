@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
- * File:   main.cpp
- * Author: samantho
+ * Author: 
+ * Renato Araujo Rizzo          RA: 587788
+ * Renato Candido Kurosaki      RA: 587834
+ * Gustavo Leite                RA: 552615
  *
  * Created on 11 de Junho de 2018, 08:59
  */
 
 #include "Arvore.h"
+#include "Corretor.h"
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -22,10 +19,9 @@ using namespace std;
  * 
  */
 int main() {
-    Arvore* nova = nova->Carregar("<caminho do arquivo>");
-
-    nova->Imprimir();
-    nova->Limpar();
-    return 0;
+    Corretor corretor;
+    corretor.principal();
+    corretor.salvar();
+    
 }
 
