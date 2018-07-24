@@ -18,7 +18,7 @@ using namespace std;
 //Monta a AVL com as palavras no dicionario fornecido
 Dicionario::Dicionario(){
     try{
-        avl->Carregar("/home/samantho/Desktop/dict.txt");
+        avl->Carregar("dict.txt");
         
         if(avl == NULL)
             throw 200;
@@ -32,7 +32,7 @@ Dicionario::Dicionario(){
 
 //Destrutor limpa a AVL e tambem limpa a lista de Palavras
 Dicionario::~Dicionario(){
-    avl->Salvar("/home/samantho/Desktop/dict.txt");
+    avl->Salvar("dict.txt");
     avl->Limpar();
     listaSemelhantes.clear();
 }
