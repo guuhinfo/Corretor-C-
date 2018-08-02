@@ -16,7 +16,9 @@
 using namespace std;
 
 //Monta a AVL com as palavras no dicionario fornecido
-Dicionario::Dicionario(){
+Dicionario::Dicionario(){   
+    
+    avl = new Arvore;
     try{
         avl->Carregar("dict.txt");
         
