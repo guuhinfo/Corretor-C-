@@ -101,27 +101,27 @@ void Corretor::principal(){
         if( dicionario.consultar(*it) == false ){
             int opcao = 0;
             
-            cout << "Contexto da palavra: " << endl;
+            cout << "Contexto da palavra errada: " << it->getPalavra() << endl;
             if(it == texto.begin()){
                 posterior = it;
                 posterior++;
-                cout << it->getPalavra() << posterior->getPalavra() << endl;
+                cout << it->getPalavra() << " " << posterior->getPalavra() << endl;
             }
             
             else if(it == texto.end()){
                 anterior = it;
                 anterior--;
-                cout << anterior->getPalavra() << it->getPalavra() << endl;
+                cout << anterior->getPalavra() << " " << it->getPalavra() << endl;
             }
             else{
                 anterior = it;
                 anterior--;
                 posterior = it;
                 posterior++;
-                cout << anterior->getPalavra() << it->getPalavra() << posterior->getPalavra() << endl;
+                cout << anterior->getPalavra() << " " << it->getPalavra()<< " " << posterior->getPalavra() << endl;
             }
             
-            
+            cout << endl;
             cout << "Escolha uma opcao:" << endl;
             cout << "1: Corrigir a palavra" << endl;
             cout << "2: Ignorar o erro" << endl;
