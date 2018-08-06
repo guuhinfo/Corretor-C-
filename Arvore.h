@@ -87,6 +87,8 @@ class Arvore
         inline Direcao oposto(Direcao dir);
         
         void listaSemelhantes(No* no, Palavra palavra);
+        
+        bool checaListaSemelhantes(string palavra);
 
 };
 
