@@ -118,7 +118,11 @@ void Corretor::principal(){
                 anterior--;
                 posterior = it;
                 posterior++;
-                cout << anterior->getPalavra() << " " << it->getPalavra()<< " " << posterior->getPalavra() << endl;
+                if(posterior == texto.end()){
+                    cout << anterior->getPalavra() << " " << it->getPalavra() << endl;
+                } else {
+                    cout << anterior->getPalavra() << " " << it->getPalavra() << " " << posterior->getPalavra() << endl;
+                }
             }
             
             cout << endl;
@@ -138,60 +142,60 @@ void Corretor::principal(){
             }
             
             switch(opcao){
-                    case 1:{// Corrige a palavra
-                        
-                        cout << "Entre com a nova palavra: " << endl;
-                        cin >> novaPalavra;
-                        it->setPalavra(novaPalavra);
+                case 1:{// Corrige a palavra
+                    
+                    cout << "Entre com a nova palavra: " << endl;
+                    cin >> novaPalavra;
+                    it->setPalavra(novaPalavra);
+                    break;
+                }    
+                case 2:{
+                    //Ignorar o erro e dar a opcao de adicionar ao dicionario
+                    int escolha;
+                    cout << "Deseja adicionar a palavra ao dicionario?" << endl;
+                    cout << "1: sim" << endl;
+                    cout << "2: nao" << endl;
+                    cin >> escolha;
+                    //Se nao fornecer nenhuma opcao valida, nao sera adicionada
+                    //ao dicionario
+                    if(escolha != 1)
                         break;
-                    }    
-                    case 2:{
-                        //Ignorar o erro e dar a opcao de adicionar ao dicionario
-                        int escolha;
-                        cout << "Deseja adicionar a palavra ao dicionario?" << endl;
-                        cout << "1: sim" << endl;
-                        cout << "2: nao" << endl;
-                        cin >> escolha;
-                        //Se nao fornecer nenhuma opcao valida, nao sera adicionada
-                        //ao dicionario
-                        if(escolha != 1)
-                            break;
-                        dicionario.incluirPalavra(it->getPalavra());
-                        break;
-                    }    
-                    case 3:{ // Mostra uma lista de palavras semelhantes
-                        semelhantes = dicionario.getListaSemelhantes();
-                        
-                        //Verifica se a lista de semelhantes esta vazia
-                        if(semelhantes.empty() == true){
-                            cout << "Nao ha palavras semelhantes!" << endl;
-                            break;
-                        }
-                        
-                        list<Palavra>::iterator iterador = semelhantes.begin();
-                        int contador = 1;
-                        int nroSubstituto;
-                        
-                        cout << "Escolha um numero (0 para prosseguir sem substituir): " << endl;
-                        while(iterador != semelhantes.end()) {
-                            cout << "\t" << contador << ": " << iterador->getPalavra() << endl;
-                            contador++;
-                        }
-                        cin >> nroSubstituto;
-                        
-                        if(nroSubstituto == 0)
-                            break;
-                        
-                        for(iterador = semelhantes.begin(), contador = 0; contador == nroSubstituto - 1; contador++, iterador++ ){
-                            it->setPalavra(*iterador);
-                        }
+                    dicionario.incluirPalavra(it->getPalavra());
+                    break;
+                }    
+                case 3:{ // Mostra uma lista de palavras semelhantes
+                    semelhantes = dicionario.getListaSemelhantes();
+                    
+                    //Verifica se a lista de semelhantes esta vazia
+                    if(semelhantes.empty() == true){
+                        cout << "Nao ha palavras semelhantes!" << endl;
                         break;
                     }
-                        
-                    default:{
+                    
+                    list<Palavra>::iterator iterador = semelhantes.begin();
+                    int contador = 1;
+                    int nroSubstituto;
+                    
+                    cout << "Escolha um numero (0 para prosseguir sem substituir): " << endl;
+                    while(iterador != semelhantes.end()) {
+                        cout << "\t" << contador << ": " << iterador->getPalavra() << endl;
+                        contador++;
+                    }
+                    cin >> nroSubstituto;
+                    
+                    if(nroSubstituto == 0)
                         break;
-                    }                           
+                    
+                    for(iterador = semelhantes.begin(), contador = 0; contador == nroSubstituto - 1; contador++, iterador++ ){
+                        it->setPalavra(*iterador);
+                    }
+                    break;
                 }
+                    
+                default:{
+                    break;
+                }                           
+            }
 
             //Adiciona a palavra na lista de erros
             listaErros.push_back(*it);
