@@ -174,11 +174,12 @@ void Corretor::principal(){
                     
                     list<Palavra>::iterator iterador = semelhantes.begin();
                     int contador = 1;
-                    int nroSubstituto;
+                    int nroSubstituto = 0;
                     
                     cout << "Escolha um numero (0 para prosseguir sem substituir): " << endl;
                     while(iterador != semelhantes.end()) {
                         cout << "\t" << contador << ": " << iterador->getPalavra() << endl;
+                        iterador++;
                         contador++;
                     }
                     cin >> nroSubstituto;
@@ -186,8 +187,8 @@ void Corretor::principal(){
                     if(nroSubstituto == 0)
                         break;
                     
-                    for(iterador = semelhantes.begin(), contador = 0; contador == nroSubstituto - 1; contador++, iterador++ ){
-                        it->setPalavra(*iterador);
+                    for(iterador = semelhantes.begin(), contador = 0; contador <= nroSubstituto - 1; contador++, iterador++ ){
+                        it->setPalavra(iterador->getPalavra());
                     }
                     break;
                 }
