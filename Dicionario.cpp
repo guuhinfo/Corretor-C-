@@ -18,7 +18,7 @@ using namespace std;
 //Monta a AVL com as palavras no dicionario fornecido
 Dicionario::Dicionario(){   
     try{
-        avl = new Arvore;
+        avl = new Arvore();
     }
     catch(bad_alloc){
         cout << "Memoria insuficiente!" << endl;

@@ -128,8 +128,16 @@ void Corretor::principal(){
             cout << "3: Selecionar uma palavra semelhante" << endl;
             cin >> opcao;
             
-            while(opcao != 1 || opcao != 2 || opcao != 3){
-                switch(opcao){
+            while(opcao != 1 && opcao != 2 && opcao != 3){
+                cout << endl;
+                cout << "Escolha uma opcao:" << endl;
+                cout << "1: Corrigir a palavra" << endl;
+                cout << "2: Ignorar o erro" << endl;
+                cout << "3: Selecionar uma palavra semelhante" << endl;
+                cin >> opcao;
+            }
+            
+            switch(opcao){
                     case 1:{// Corrige a palavra
                         
                         cout << "Entre com a nova palavra: " << endl;
@@ -181,13 +189,10 @@ void Corretor::principal(){
                     }
                         
                     default:{
-                        cout << "Opcao invalida!" << endl;
-                    }    
-                        
+                        break;
+                    }                           
                 }
-                cin >> opcao;
-            }
-            
+
             //Adiciona a palavra na lista de erros
             listaErros.push_back(*it);
         }
