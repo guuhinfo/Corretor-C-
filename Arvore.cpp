@@ -470,7 +470,7 @@ void Arvore::listaSemelhantes(No* no, Palavra palavra){
         
         string aux;
         aux = palavra.getPalavra();
-        if(no->word.semelhante( aux ) == true && checaListaSemelhantes( no->word.getPalavra() ) == true && semelhantes.empty()==true){ 
+        if(no->word.semelhante( aux ) == true && checaListaSemelhantes( no->word.getPalavra() ) == true){ 
             semelhantes.push_back( no->word );
         }
         
@@ -488,6 +488,9 @@ void Arvore::limpaListaSemelhantes(){
 }
 
 bool Arvore::checaListaSemelhantes(string palavra){
+    if(semelhantes.empty())
+        return true;
+    
     
     list<Palavra>::iterator iterador = semelhantes.begin();
     
