@@ -26,7 +26,7 @@ Dicionario::Dicionario(){
     
     
     try{
-        avl->Carregar("dict.txt");
+        avl = avl->Carregar("dict.txt");
         
         if(avl == NULL)
             throw 200;
