@@ -324,7 +324,7 @@ bool Arvore::remover(const string& chave, No*& no, bool& hChanged){
             while (substitute->SubArvore[DIREITA] != NULL){
                 substitute = substitute->SubArvore[DIREITA];
             }
-            //VERIFICAR<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
             no->word = substitute->word;
 
             success = remover(no->word.getPalavra(), no->SubArvore[ESQUERDA], hChanged);

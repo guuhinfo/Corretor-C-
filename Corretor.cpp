@@ -206,9 +206,42 @@ void Corretor::principal(){
     }
     
     //Pega a lista de erros e adiciona a lista de tuplas (pares)
-    /*list<Palavra>::iterator iterador;
+    list<Palavra>::iterator iterador = listaErros.begin();
+    list<Palavra>::iterator mesmoErro;
+    list<Palavra>::iterator auxiliar;
     list<pair<Palavra, int>>::iterator itpair = erros.begin();
-    for(iterador = listaErros.begin(); iterador = listaErros.end(); iterador++){
+    
+    while(iterador != listaErros.end()){
+        mesmoErro = iterador;
+        mesmoErro++;
         
-    }*/
+        pair<Palavra, int> par;
+        par.first = *iterador;
+        par.second = 1;
+        
+        while(mesmoErro != listaErros.end()){
+            auxiliar = mesmoErro;
+            if(mesmoErro->getPalavra() == par.first.getPalavra()){
+                par.second++;
+                mesmoErro++;
+                listaErros.erase(auxiliar);
+            }
+            else
+                mesmoErro++;
+        }
+        
+        erros.push_back(par);
+        
+        iterador++;
+    }
+    
+    itpair = erros.begin();
+    cout << endl;
+    cout << "Lista de erros encontrados!" << endl;
+    cout << "\t" << "Palavra" << "\t" << "|" << "\t" << "Ocorrencias" << endl;
+    while(itpair != erros.end()){
+        cout << "\t" << itpair->first.getPalavra() << "\t" << "|" << "\t" << itpair->second << endl;
+        cout << endl;
+        itpair++;
+    }
 }
