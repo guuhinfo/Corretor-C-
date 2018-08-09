@@ -79,6 +79,7 @@ void Corretor::carregarTexto(){
 void Corretor::principal(){
     //Nova palavra caso seja necessario usar no primeiro caso do switch
     string novaPalavra;
+    int flag = 0;
     
     //Pega o texto da classe Texto
     carregarTexto();
@@ -140,12 +141,13 @@ void Corretor::principal(){
                 cout << "3: Selecionar uma palavra semelhante" << endl;
                 cin >> opcao;
             }
-            
+            flag = 0;
             switch(opcao){
                 case 1:{// Corrige a palavra
-                    
+                    flag = 1;
                     cout << "Entre com a nova palavra: " << endl;
                     cin >> novaPalavra;
+                    listaErros.push_back(*it);
                     it->setPalavra(novaPalavra);
                     break;
                 }    
@@ -187,6 +189,9 @@ void Corretor::principal(){
                     if(nroSubstituto == 0)
                         break;
                     
+                    flag = 1;
+                    listaErros.push_back(*it);
+                    
                     for(iterador = semelhantes.begin(), contador = 0; contador <= nroSubstituto - 1; contador++, iterador++ ){
                         it->setPalavra(iterador->getPalavra());
                     }
@@ -199,7 +204,8 @@ void Corretor::principal(){
             }
 
             //Adiciona a palavra na lista de erros
-            listaErros.push_back(*it);
+            if(flag != 1)
+                listaErros.push_back(*it);
         }
         
         it++;
