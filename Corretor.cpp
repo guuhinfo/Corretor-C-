@@ -56,13 +56,6 @@ void Corretor::carregarTexto(){
     texto = textoOriginal.getTexto();
 }
 
-/*void Corretor::corrigirPalavra(string palavra){
-    string novaPalavra;
-    cout << "Corrigir a palavra: " << palavra << endl;
-    cin >> novaPalavra;
-    
-}*/
-
 /*
  * Faz a interacao com o usuario. Primeiramente carrega o texto da classe Texto
  * para poder manipular na classe Corretor. Passa palavra por palavra do texto
@@ -75,6 +68,9 @@ void Corretor::carregarTexto(){
  * 3: Mostra uma lista de palavras semelhantes para que o usuario possa escolher
  *    e substituir a palavra errada pela escolhida!
  * A cada Palavra errada encontrada, a mesma sera adicionada a uma lista de erros.
+ * No final, essa lista de palavras erradas e analisada e e montada uma lista de 
+ * pares onde sao armazenadas as palavras erradas e o numero de ocorrencias delas
+ * no texto.
  */
 void Corretor::principal(){
     //Nova palavra caso seja necessario usar no primeiro caso do switch

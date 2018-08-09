@@ -31,19 +31,6 @@ Arvore::~Arvore(){
 
 }
 
-/*void Arvore::Imprimir(){
-    this->imprimir(this->raiz);
-}*/
-
-// Imprime os nos da Arvore em ordem
-/*void Arvore::imprimir(No* no){
-    if (no != NULL){
-        this->imprimir(no->SubArvore[ESQUERDA]);
-        cout << no->word.getPalavra()  << endl;
-        this->imprimir(no->SubArvore[DIREITA]);
-    }
-}*/
-
 // Limpa a árvore (remove todos seus nós)
 void Arvore::Limpar(){
 
